@@ -1,10 +1,10 @@
 export type Block = {
-    index?: number,
-    timestamp?: Date,
-    transactions?: Array<Transaction>,
-    nonce?: number,
-    hash?: string,
-    priviousBlockHash?: string,
+    index: number,
+    timestamp: Date,
+    transactions: Array<Transaction>,
+    nonce: number,
+    hash: string,
+    priviousBlockHash: string,
 }
 
 export type Transaction = {

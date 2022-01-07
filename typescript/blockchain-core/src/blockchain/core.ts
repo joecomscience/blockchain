@@ -10,6 +10,17 @@ export default class Core {
         this.chain.push(genesisBlock)
     }
 
+    createEmptyBlock(index: number, transactions: Array<Transaction> = []): Block {
+        return {
+            index: index + 1,
+            timestamp: new Date(0),
+            transactions,
+            nonce: 0,
+            hash: "",
+            priviousBlockHash: ""
+        }
+    }
+
     createNewBlock(nonce: number, priviousBlockHash: string, hash: string) {
         const newBlock: Block = {
             index: this.chain.length + 1,
@@ -25,7 +36,7 @@ export default class Core {
         return newBlock
     }
 
-    getLastBlock() {
+    getLastBlock(): Block {
         return this.chain[this.chain.length - 1]
     }
 
@@ -36,7 +47,7 @@ export default class Core {
             amount,
         }
         this.penddingTransaction.push(newTransaction)
-        // this.getLastBlock().index++;
+        this.getLastBlock().index++
     }
 
     hashBlock(previousBlockHash: string, currentBlockData: Block, nonce: number) {
