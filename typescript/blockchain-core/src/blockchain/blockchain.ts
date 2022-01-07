@@ -5,12 +5,12 @@ export default class Blockchain {
     private core: Core
     private node: Node
 
-    constructor() {
-        this.core = new Core()
-        this.node = new Node()
+    constructor(core: Core, node: Node) {
+        this.core = core
+        this.node = node
     }
 
-    getInfo() {
+    get() {
         return {
             chain: this.core.chain,
             peddingTransaction: this.core.penddingTransaction,

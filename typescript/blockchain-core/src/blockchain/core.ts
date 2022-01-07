@@ -1,5 +1,5 @@
 import * as crypto from "crypto"
-import { Block, Transaction } from "./types"
+import { Block, Transaction } from "../types/types"
 
 export default class Core {
     chain: Array<Block> = []
@@ -36,7 +36,7 @@ export default class Core {
             amount,
         }
         this.penddingTransaction.push(newTransaction)
-        this.getLastBlock().index++;
+        // this.getLastBlock().index++;
     }
 
     hashBlock(previousBlockHash: string, currentBlockData: Block, nonce: number) {
